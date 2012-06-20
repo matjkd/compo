@@ -96,6 +96,11 @@ class Management extends MY_Controller {
             }
         }
     }
+    
+    function callback() {
+    	
+    	
+    }
 
     function is_logged_in() {
         $is_logged_in = $this->session->userdata('is_logged_in');

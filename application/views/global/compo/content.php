@@ -6,7 +6,7 @@
 
 
     <?php
-    $is_logged_in = $this->session->userdata('is_logged_in');
+     $is_logged_in = $this->session->userdata('is_logged_in');
     
     $role = $this->session->userdata('role');
     if ($is_logged_in != 0 && $role == 1) {

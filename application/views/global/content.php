@@ -5,7 +5,8 @@
 
 <?php 
 $is_logged_in = $this->session->userdata('is_logged_in');
-		if(!isset($is_logged_in) || $is_logged_in == true)
+			$role = $this->session->userdata('role');
+		if($is_logged_in != 0 && $role == 1)
 		{
 			echo "<a href='".base_url()."admin/edit/".$row->content_id."'>Edit this page</a><br/>";
 		}	
