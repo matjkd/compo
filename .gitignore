@@ -1,3 +1,8 @@
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
 application/config/database.php
 application/config/config.php
 application/config/postmark.php
