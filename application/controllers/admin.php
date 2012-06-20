@@ -123,7 +123,7 @@ class Admin extends MY_Controller {
             $this->upload_image($id);
 
 
-            redirect("admin/edit/$id");
+           redirect("admin/edit/$id");
         }
     }
 
@@ -223,6 +223,7 @@ class Admin extends MY_Controller {
 
             $fileName = $_FILES['file']['name'];
             $tmpName = $_FILES['file']['tmp_name'];
+            $fileName = str_replace(" ", "_", $fileName);
             $filelocation = $fileName;
 
             $thefile = file_get_contents($tmpName, true);
@@ -238,10 +239,10 @@ class Admin extends MY_Controller {
             //move the file
 
             if ($this->s3->putObject($thefile, $this->bucket, $filelocation, S3:: ACL_PUBLIC_READ)) {
-                //echo "We successfully uploaded your file.";
+               echo "We successfully uploaded your file.";
                 $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
             } else {
-                //echo "Something went wrong while uploading your file... sorry.";
+                echo "Something went wrong while uploading your file... sorry. ";
                 $this->session->set_flashdata('message', 'News Added, but your file did not upload');
             }
 
@@ -253,10 +254,10 @@ class Admin extends MY_Controller {
             $newfile = file_get_contents($thumblocation, true);
 
             if ($this->s3->putObject($newfile, $this->bucket, $newfilename, S3:: ACL_PUBLIC_READ)) {
-                //echo "We successfully uploaded your file.";
+                echo "We successfully uploaded your thumb file.";
                 $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
             } else {
-                //echo "Something went wrong while uploading your file... sorry.";
+                echo "Something went wrong while uploading your thumb file... sorry.";
                 $this->session->set_flashdata('message', 'News Added, but your file did not upload');
             }
 //delete files from server
@@ -288,7 +289,7 @@ class Admin extends MY_Controller {
 
 
 
-                redirect('/admin');   // or whatever logic needs to occur
+               redirect('/admin');   // or whatever logic needs to occur
             } else {
                 echo 'An error occurred saving your information. Please try again later';
                 // Or whatever error handling is necessary

@@ -11,7 +11,9 @@
 
             <h4>Refundable deposits </h4>
             Level 1  £150.00 deposit is required.<br/>
-            Level 2 £250.00 deposit is required	
+            Level 2 £200.00 deposit is required. <br/>	
+            Level 3 £250.00 deposit is required. <br/>	
+            Level 4 £300.00 deposit is required. <br/>	
             </p>
         </div>
 

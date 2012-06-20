@@ -10,7 +10,7 @@
 
     </head>
 
-    <body>
+  <body>
 
         <!--   hidden input to pass base url to js files-->
         <input type="hidden" id="baseurl" value="<?= base_url() ?>"/>
@@ -19,7 +19,11 @@
         <div id="fullbackground" style="display:none;">
             <?php
             if (isset($slideshow) && $slideshow != '0') {
-                $this->load->view($slideshow);
+                if($slideshow != NULL){
+            	$this->load->view($slideshow);
+                } else {
+                	$this->load->view('slideshow/main');
+                }
             } else {
                 $this->load->view('slideshow/main');
             }

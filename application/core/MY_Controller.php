@@ -40,6 +40,7 @@ class MY_Controller extends CI_Controller {
 			$this->config_theme = $row->company_theme;
 			$this->config_email = $row->main_email;
 
+			
 			$this->config_company_name = $row->company_name;
 			$this->load->vars($config_data);
 			

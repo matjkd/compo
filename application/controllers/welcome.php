@@ -19,6 +19,7 @@ class Welcome extends MY_Controller {
 			$data['menu'] = 'home';
 		}
 
+		
 		$this->get_content_data($data['menu']);
 		if ($data['menu'] == 'news') {
 			$data['news'] = $this->content_model->get_content_cat('news');
@@ -88,6 +89,7 @@ class Welcome extends MY_Controller {
 			$data['menu'] = $this->uri->segment(1);
 		}
 
+		
 		$this->get_content_data($data['menu']);
 		if ($data['menu'] == 'news') {
 			$data['news'] = $this->content_model->get_content_cat('news');

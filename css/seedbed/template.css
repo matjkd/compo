@@ -378,3 +378,12 @@ ul.unitmenu li ul li a:hover {
 	
 	cursor:pointer;
 }
+.newsImage {
+    float:left;
+    width:200px;
+    padding-right:20px;
+}
+.newsImage img {
+    
+    width:200px;
+}

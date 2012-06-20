@@ -1,1 +1,2 @@
-<a href="<?=base_url()?>welcome/mailbox_form">Mailbox Appliaction Form</a>
+
+ <div id="map_canvas" style="width:460px;height:400px;"></div>

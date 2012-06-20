@@ -50,11 +50,10 @@ class S3 {
 	private static $__access_key = NULL; // AWS Access key
 	private static $__secret_key = NULL; // AWS Secret key
 
-	function __construct($config = array())
+	function __construct($s3config = array())
 	{
 		
-		if ( ! empty($config))
-		{
+		
 			$CI =& get_instance();
 			$CI->load->model('admin_model');
 			$admindata = $CI->admin_model->get_admin(1);
@@ -64,15 +63,15 @@ class S3 {
 				$secret  = $row->access_key;
 			endforeach;
 			
-			$config['access_key'] = $key_id;
-			$config['secret_key'] = $secret;
+			$s3config['access_key'] = $key_id;
+			$s3config['secret_key'] = $secret;
 			
 			
 			
-			$this->initialize($config);
+			$this->initialize($s3config);
 			
-		}
-
+		
+		
 		log_message('debug', 'S3 Class Initialized');
 	}
 
@@ -85,16 +84,16 @@ class S3 {
 	 * @param	array
 	 * @return	void
 	 */
-	function initialize($config = array())
+	function initialize($s3config = array())
 	{
-		extract($config);
+		extract($s3config);
 
 		if ( ! empty($access_key) AND ! empty($secret_key))
 		{
 			self::setAuth($access_key, $secret_key);
 		}
 
-		self::$use_ssl = $use_ssl;
+		self::$use_ssl = false;
 	}
 
 	/**
